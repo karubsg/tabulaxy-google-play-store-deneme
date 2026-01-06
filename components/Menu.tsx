@@ -1,24 +1,31 @@
-import React from 'react';
 import { GameMode } from '../types';
-import { BookOpen, MicOff, Zap, Map, Rocket } from 'lucide-react';
+import { BookOpen, MicOff, Zap, Map, Rocket, Crown } from 'lucide-react';
 
 interface MenuProps {
   onSelectMode: (mode: GameMode) => void;
+  onOpenShop: () => void;
 }
 
-const Menu: React.FC<MenuProps> = ({ onSelectMode }) => {
+const Menu: React.FC<MenuProps> = ({ onSelectMode, onOpenShop }) => {
   return (
     <div className="flex flex-col items-center justify-between min-h-full py-6 px-6 animate-fade-in w-full max-w-md mx-auto">
-      
+
+      {/* Top Bar */}
+      <div className="w-full flex justify-end">
+        <button onClick={onOpenShop} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-xs font-bold hover:bg-yellow-500/20 transition-all active:scale-95">
+          <Crown size={14} /> MARKET
+        </button>
+      </div>
+
       {/* Hero Section */}
       <div className="flex-1 flex flex-col items-center justify-center space-y-4 w-full mt-8">
         <div className="relative">
           <div className="absolute inset-0 bg-purple-500 blur-[60px] opacity-20 rounded-full animate-pulse"></div>
           <div className="relative bg-slate-800/50 p-4 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-sm transform rotate-3">
-             <Rocket size={48} className="text-pink-500" />
+            <Rocket size={48} className="text-pink-500" />
           </div>
         </div>
-        
+
         <div className="text-center space-y-1 z-10">
           <h1 className="text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-purple-200 to-purple-400 drop-shadow-sm">
             TABULAXY
@@ -32,7 +39,7 @@ const Menu: React.FC<MenuProps> = ({ onSelectMode }) => {
 
       {/* Buttons */}
       <div className="w-full space-y-3 mb-8 z-10">
-        
+
         {/* HARİTA MODU (Primary) */}
         <button
           onClick={() => onSelectMode(GameMode.JOURNEY)}
@@ -53,21 +60,21 @@ const Menu: React.FC<MenuProps> = ({ onSelectMode }) => {
         </button>
 
         <div className="grid grid-cols-2 gap-3">
-            <button
+          <button
             onClick={() => onSelectMode(GameMode.CLASSIC)}
             className="flex flex-col items-center justify-center p-4 bg-slate-800/80 border border-slate-700/50 rounded-2xl active:bg-slate-800 transition-all hover:border-pink-500/50 group"
-            >
+          >
             <BookOpen size={28} className="text-pink-400 mb-2 group-hover:scale-110 transition-transform" />
             <span className="text-sm font-bold text-slate-200">Klasik</span>
-            </button>
+          </button>
 
-            <button
+          <button
             onClick={() => onSelectMode(GameMode.SILENT)}
             className="flex flex-col items-center justify-center p-4 bg-slate-800/80 border border-slate-700/50 rounded-2xl active:bg-slate-800 transition-all hover:border-blue-500/50 group"
-            >
+          >
             <MicOff size={28} className="text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
             <span className="text-sm font-bold text-slate-200">Sessiz</span>
-            </button>
+          </button>
         </div>
 
         <button

@@ -28,6 +28,7 @@ export interface GameSettings {
   enableJokers: boolean;
   enableChallenges: boolean;
   enableSabotage: boolean; // Yeni özellik
+  enabledCategories: number[]; // Seçilen kategorilerin ID listesi
 }
 
 // --- JOKERLER ---
@@ -73,12 +74,12 @@ export interface GameSession {
   currentTeam: 1 | 2;
   team1: TeamStats;
   team2: TeamStats;
-  
+
   // Turn specific data (resets every turn)
   timeLeft: number;
   wordBudget?: number;   // Only for Marathon
   passBudget: number;
-  
+
   // Active modifiers
   activeChallenge: Challenge | null; // Şu anki tur için geçerli şans kartı
   activeModifiers: {

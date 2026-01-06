@@ -1,0 +1,28 @@
+[
+    {
+        "target": "TABULAXY",
+        "forbidden": [
+            "Oyun",
+            "Kelime",
+            "Yasak",
+            "Anlatmak",
+            "Kart"
+        ],
+        "categoryId": 6,
+        "difficultyId": 1,
+        "modeFlags": 15
+    },
+    {
+        "target": "PYTHON",
+        "forbidden": [
+            "Yazılım",
+            "Yılan",
+            "Kodlama",
+            "Dil",
+            "Program"
+        ],
+        "categoryId": 5,
+        "difficultyId": 2,
+        "modeFlags": 15
+    }
+]
